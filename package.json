@@ -8,7 +8,23 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "api": "json-server --host 192.168.0.100 --watch db.json"
+    "api": "json-server --host 192.168.0.100 --watch db.json",
+    "test": "jest --watch --coverage=false",
+    "testFinal": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.8",
@@ -17,6 +33,8 @@
     "expo": "~44.0.0",
     "expo-blur": "~11.0.0",
     "intl": "^1.2.5",
+    "jest": "^26.6.3",
+    "jest-expo": "^46.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
@@ -25,7 +43,10 @@
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-native": "^9.0.0",
+    "react-test-renderer": "^17.0.1"
   },
   "private": true
 }
